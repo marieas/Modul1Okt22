@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="mydiv" onclick="changeText(this)">HEI</div>
+    <div onclick="changeText(this)">PÅ deg</div>
+    <button onclick="setCurrentColor('red', this)">Rød</button>
+    <button onclick="setCurrentColor('blue',this)">Blue</button>
+    <button onclick="changeBodyBackgroundColor()">RANDOM</button>
+</body>
+<script>
+    let currentColor = '';
+
+    function setColorToRandomColor(){
+        let x = Math.floor(Math.random() * 3);
+        console.log(x);
+        if(x == 0){
+            return 'red';
+        }
+        else if(x == 1){
+            return 'blue';
+        } else {
+            return'gray';
+        }        
+    }
+    function changeBodyBackgroundColor(){       
+       // let backgroundColor = setColorToRandomColor();
+        document.body.style.backgroundColor = setColorToRandomColor();
+    }
+
+    function changeText(divToChange){
+        divToChange.innerHTML = "Marie er stressa :)";
+    }
+    function setCurrentColor(color, btn){
+        currentColor = color;
+        document.getElementById('mydiv').style.backgroundColor = currentColor;
+        btn.style.backgroundColor = currentColor;
+    }
+
+</script>
+<style>
+
+</style>
+</html>
