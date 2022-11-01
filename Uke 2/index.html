@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+</div>
+
+<script> 
+    //Model - dataene våre!
+    let inputText;
+    let sarcasmResult;
+    let sarcasmText = '';
+
+    updateView();
+    // view - det vi ser    
+    function updateView(){       
+        document.getElementById('app').innerHTML = /*HTML*/ `
+        <input id="inputfield" type="text" onchange="handleSubmit()">  
+            <div>${sarcasmText}</div>
+            `
+    }
+ 
+     // Controller - funksjoner som oppdaterer modellen
+     function handleSubmit(){      
+        inputText = document.getElementById('inputfield').value; //Her henter vi verdien til inputfeltet
+        sarcasmResult = detectSarcasm();
+        if(sarcasmResult == true){
+           sarcasmText = 'Sarcasm detected'
+        } 
+        else {
+           sarcasmText = 'No sarcasm heeeere! ;)'
+        }
+        console.log(sarcasmText)
+        updateView(); // husk å oppdatere view når man har gjort endringer ^^ 
+    }
+    function detectSarcasm(){
+        let sarcasmResult =  inputText.includes('...'); //sjekker om teksten i input har ... i seg
+        return sarcasmResult;
+    }
+  
+   
+</script>
+</body>
+</html>
