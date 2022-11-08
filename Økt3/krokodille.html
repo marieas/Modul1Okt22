@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div id="app"></div>
+   <script>
+
+    //model
+    let number1 = 0;
+    let number2 = 10;
+    let points = 0;
+    let answer;
+    
+    updateView()
+    //view
+    function updateView(){
+        // document.getElementById('number1').innerHTML = number1;
+        // document.getElementById('number2').innerHTML = number2;
+        // document.getElementById('points').innerHTML = points;
+            let html = `<div id="points">Poeng: ${points} </div>
+        <img class="image" src="krokodille.jpg">
+        <div>${number1}</div>
+        <input id="inputvalue" type="text" oninput="answer = this.value">
+        <div>${number2}</div>
+        
+        <button onclick="reset()">Reset</button>
+        <button onclick="submit()">Submit</button>`
+        document.getElementById('app').innerHTML = html;
+    }
+    
+    //controller
+
+    function reset(){
+        number1 = Math.floor(Math.random()* 10) +1;
+        number2 = Math.floor(Math.random()* 10) +1;
+        updateView();
+    }
+
+    function submit(){
+        // Når man trykker submit - må man sjekke at man har skrevet inn riktig tegn i input-feltet
+        // og oppdatere poengsummen. Riktig svar plusser på 1 poeng, feil svar trekker fra et poeng.
+        
+        console.log(answer);
+        if(number1 > number2 && answer === '>') {
+            points++;
+        }   
+        else if(number1 < number2 && answer === '<') {
+            points++;
+        }    
+        else if(number1 == number2 && answer === '=') {
+            points++;
+        }  
+        else{
+            points--;
+        }
+        updateView();
+    }
+   
+   </script>
+</body>
+<style>
+    .image{
+        height: 100px;
+        width: 100px;
+    }
+</style>
+</html>

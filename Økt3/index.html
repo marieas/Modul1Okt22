@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let variabel1 = 1;
+        let variabel2 = 0;
+        
+        // variabel1 = increaseNumber(variabel1);
+        // variabel2 = decreaseNumber(variabel2);
+        // console.log(variabel1)
+        // console.log(variabel2);
+        // multiplyBy2();
+        // console.log(variabel1);
+        // let result= checkIfLargerThan(variabel1, variabel2);
+        // console.log(result)
+        // let res = checkIfNotEqualTo();
+        // console.log(res);
+        let isEqualOrZero = checkIfEqualAndNotZero();
+        console.log(isEqualOrZero);
+
+        function checkIfEqualAndNotZero(){
+            if(variabel1 === variabel2 && variabel1 != 0){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        function increaseNumber(varToIncrease){
+            //varToIncrease = varToIncrease +1;
+            varToIncrease++;
+            return varToIncrease;          
+        }
+        function decreaseNumber(varToDecrease){
+            //varToDecrease = varToDecrease -1;
+            varToDecrease--;
+            return varToDecrease;
+        }
+        function multiplyBy2(){
+           // variabel1 = variabel1*2;
+            variabel1 *=2;           
+        }
+        
+        function checkIfLargerThan(var1,var2){
+          // return var1 > var2;
+            if(var1 > var2){
+                return true;
+            }
+            else{
+                return false;
+            }
+           //return var1 > var2 ?  true : false;
+        }
+
+        function checkIfNotEqualTo(){
+            if(variabel1 != variabel2)
+            return true;
+            else 
+            return false;
+        }
+        function checkIfEqual(){
+            if(variabel1 === variabel2) return true;
+            else return false;
+        }
+       
+    </script>
+</body>
+</html>
