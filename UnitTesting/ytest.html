@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.19.3.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.19.3.js"></script>
+    <script src="controller.js"></script>
+    <script src="model.js"></script>
+    <script>
+
+        function updateView(){}
+ 
+        QUnit.test('test unknown returns butter price', function(assert){
+           let actual = getItemCost('unknown')
+           assert.equal(butterPrice,actual)          
+        })
+        QUnit.test('test milk returns correct price', function(assert){
+           let actual = getItemCost('milk')
+           assert.equal(milkPrice,actual)           
+        })
+
+        QUnit.test('test bread returns correct price', function(assert){
+           let actual = getItemCost('bread')
+           assert.equal(breadPrice,actual)           
+        })
+
+        QUnit.test('test add item to cart', function(assert){
+            total = 10;
+            shoppingCart = [];
+            let expectedShoppingCart = ['bread']
+            let expectedTotal = 55
+            
+            addItemToCart('bread');
+            assert.deepEqual(expectedShoppingCart,shoppingCart)
+            assert.equal(expectedTotal,total)
+           
+        })
+        QUnit.test('add cost test', function(assert){
+            total = 0;
+            let expected = 10;
+            let actual = addCost(10);
+            assert.equal(expected,actual)
+        })
+
+        QUnit.test('remove cost test', function(assert){
+            total = 10;
+            let expected = 5;
+            let actual = removeCost(5);
+            assert.equal(expected,actual)
+        })
+
+        QUnit.test('add cost test when total is not zero', function(assert){
+            total = 10;
+            let expected = 30;
+            let actual = addCost(20);
+            assert.equal(expected,actual)
+        })
+
+        QUnit.test('add all to cart', function(assert){
+            
+            let expected = ['bread','butter','milk','salami'];
+
+            let actual = addAllToShoppingcart('bread','butter','milk','salami');
+            assert.deepEqual(expected,actual)
+        })
+    </script>
+</body>
+</html>
