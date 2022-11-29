@@ -1,0 +1,13 @@
+.img{
+    height: 100px;
+    width: 100px;
+}
+
+.shoppingItems {
+    display: flex;
+    flex-direction: row;
+}
+
+.items{
+    margin: 10px;
+}
